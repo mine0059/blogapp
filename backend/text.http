@@ -1,0 +1,39 @@
+### register user
+POST http://localhost:8000/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Emmanuel",
+    "email": "test@gmail.com",
+    "password": "test@123",
+    "profileImageUrl": "",
+    "bio": "",
+    "adminAccessToken": "4445550"
+}
+
+### login user
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "test@123"
+}
+
+
+### get user orofile
+GET http://localhost:8000/api/auth/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjcwZDVmOWIxM2Q4MjRiZjNiYTA0YSIsImlhdCI6MTc1NjgzMDQ0NCwiZXhwIjoxNzU3NDM1MjQ0fQ.fku7711jmcA67lqNFXRF3jvzUdkByF0R6hq3lsRBzCs
+
+### Upload profile picture
+POST http://localhost:8000/api/auth/upload-image
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjcwZDVmOWIxM2Q4MjRiZjNiYTA0YSIsImlhdCI6MTc1NjgzMDQ0NCwiZXhwIjoxNzU3NDM1MjQ0fQ.fku7711jmcA67lqNFXRF3jvzUdkByF0R6hq3lsRBzCs
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="image"; filename="atm_card2.jpg"
+Content-Type: image/jpeg
+
+< ./atm_card2.jpg
+--MyBoundary--
